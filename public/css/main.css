@@ -1,0 +1,153 @@
+/*Default*/
+
+body {
+    margin: 0;
+}
+
+.bg-yellow {
+    background-color: #FFC82C;
+    color:#000000;
+}
+
+.bg-light-purple {
+    background-color: #A17AD7;
+    color:#FFFFFF;
+}
+.bg-dark {
+    background-color: #000000;
+    color:#FFFFFF;
+}
+
+/*
+    Menu 
+*/
+
+#menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #7B3AD6;
+    padding: 10px;
+}
+
+#menu ul {
+    list-style: none;
+}
+
+#menu .center {
+    background-color: #A17AD7;
+    width: 800px;
+    border-radius: 100px;
+    text-align: center;
+    font-size: 40px;
+    display: flex;
+    align-items: end;
+    justify-content: space-around;
+    text-transform: uppercase;
+    padding-top: 10px;
+}
+
+#menu .center a {
+    text-decoration: none;
+    color:#FFFFFF;
+    padding-bottom: 10px;
+}
+
+#menu .center .active {
+    color: #FFC82C;
+    border-bottom: solid 4px;
+}
+
+#menu .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#menu .buttons .btn {
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 30px;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 5px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 1px 2px 0px 0px #000000;
+}
+
+
+/*
+    Login e Register
+*/
+
+#form-session {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    padding: 10px;
+    padding-top: 180px;
+}
+
+#form-session .panel {
+    border-radius: 70px;
+    height: 400px;
+    width: 400px;
+    padding: 30px;
+    text-align: center;
+}
+
+#form-session .panel h2 {
+    font-size: 40px;
+}
+
+#form-session .perfil {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+}
+
+#form-session .perfil .perfil-radio {
+    display: flex;
+    justify-content: space-around;
+}
+
+#form-session .form {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+#form-session form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#form-session .form input{
+    background-color: #864CD6;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#form-session .form input::placeholder { 
+    color: #FFFFFF;
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
+}
+
+#form-session .form .btn {
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 5px;
+    text-align: center;
+    border: none;
+}
