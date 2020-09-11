@@ -14,6 +14,8 @@
     <body>
         @include('templates.menu')
         @yield('conteudo-view')
+
+        <script src="{{ asset('js/main.js') }}"></script>
         @yield('js-view')
     </body>
 </html>

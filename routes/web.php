@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\HomeController@Home');
+Route::get('/perfil-fotografo', 'App\Http\Controllers\HomeController@PerfilFotografo');
 
 Route::get('/login', 'App\Http\Controllers\LoginController@Login');
 Route::post('/login', 'App\Http\Controllers\LoginController@LoginSuccess');
