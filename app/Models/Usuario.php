@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Usuario extends Model
+{
+    use HasFactory;
+
+    public function fotografo()
+    {
+        return $this->hasOne(Fotografo::class, 'id_usuario');
+    }
+
+    public function endereco()
+    {
+        return $this->hasOne(Endereco::class, 'id_usuario');
+    }
+
+    public function contato()
+    {
+        return $this->hasMany(Usuario::class, 'id_usuario');
+    }
+}
