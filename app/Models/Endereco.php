@@ -9,6 +9,10 @@ class Endereco extends Model
 {
     use HasFactory;
 
+    const TABLE_NAME = 'fl_endereco';
+
+    protected $table = self::TABLE_NAME;
+
     public function usuario()
     {
         return $this->belongsTo(Usuario::class, 'id_usuario');
