@@ -3,11 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Usuario extends Model
+class Usuario extends User
 {
     use HasFactory;
+
+    const TABLE_NAME = 'fl_usuarios';
+
+    protected $table = self::TABLE_NAME;
 
     public function fotografo()
     {
@@ -22,5 +25,10 @@ class Usuario extends Model
     public function contato()
     {
         return $this->hasMany(Usuario::class, 'id_usuario');
+    }
+
+    public function getAuthPassword()
+    {
+     return $this->senha;
     }
 }

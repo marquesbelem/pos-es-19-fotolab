@@ -9,6 +9,10 @@ class Contato extends Model
 {
     use HasFactory;
 
+    const TABLE_NAME = 'fl_contatos';
+
+    protected $table = self::TABLE_NAME;
+
     public function usuario()
     {
         return $this->belongsTo(Usuario::class, 'id_usuario');
