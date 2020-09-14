@@ -13,10 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'App\Http\Controllers\HomeController@Home');
-Route::get('/perfil-fotografo', 'App\Http\Controllers\HomeController@PerfilFotografo');
+Route::namespace('App\Http\Controllers')
+->group(function () {
+    Route::get('/', 'HomeController@Home');
 
-Route::get('/login', 'App\Http\Controllers\LoginController@Login');
-Route::post('/login', 'App\Http\Controllers\LoginController@LoginSuccess');
-
-Route::get('/register', 'App\Http\Controllers\RegisterController@Register');
+    Route::group(['middleware' => 'auth'], function () {
+        Route::get('/perfil-fotografo', 'HomeController@PerfilFotografo');
+    });
+    
+    Route::get('/post', 'LoginController@Login');
+    Route::post('/login', 'LoginController@LoginSuccess');
+    
+    Route::get('/register', 'RegisterController@Register');    
+});
