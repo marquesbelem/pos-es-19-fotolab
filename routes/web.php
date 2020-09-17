@@ -17,12 +17,17 @@ Route::namespace('App\Http\Controllers')
 ->group(function () {
     Route::get('/', 'HomeController@Home');
 
-    Route::group(['middleware' => 'auth'], function () {
-        Route::get('/perfil-fotografo', 'HomeController@PerfilFotografo');
+    Route::group(['prefix' => 'usuario'], function () {
+        Route::get('/perfil', 'Usuario@obterDadosPerfil');
+        
+        Route::group(['prefix' => 'fotografo'], function () {
+            Route::get('/listar', 'Usuario@listarFotografo');
+        });
+        
     });
     
-    Route::get('/post', 'LoginController@Login');
-    Route::post('/login', 'LoginController@LoginSuccess');
+    Route::get('/signin', 'LoginController@Login');
+    Route::post('/signin/authenticate', 'LoginController@autenticarUsuario');
     
-    Route::get('/register', 'RegisterController@Register');    
+    Route::get('/register', 'RegisterController@Register');
 });
