@@ -8,7 +8,17 @@ use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
-    public function Login() {
+    public function login() 
+    {
+        if (!Auth::check()) {
+            return view('login.index');
+        }
+
+        return redirect('/');
+    }
+
+    public function autenticarUsuario()
+    {
         $params = request()->all();
 
         $validation = Validator::make($params, [
@@ -33,10 +43,6 @@ class LoginController extends Controller
             abort(403, "E-mail ou senha inválido!");
         }
 
-        return view('login.index');
-    }
-
-    public function LoginSuccess() {
         return view('login.success');
     }
 }

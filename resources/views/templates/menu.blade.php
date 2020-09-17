@@ -8,7 +8,7 @@
     </div>
     <div class="buttons">
         <a href="{{URL::to('/register')}}" class="btn bg-yellow ">Cadastre - se</a>
-        <a href="{{URL::to('/login')}}" class="btn bg-light-purple">Acessar</a>
+        <a href="{{URL::to('/signin')}}" class="btn bg-light-purple">Acessar</a>
     </div>
 
 </nav>
