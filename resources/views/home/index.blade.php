@@ -5,33 +5,10 @@
 
 @section('conteudo-view')
     <div id="home">
-        <div class="container-carrossel">
-            <div class="carrosel">
-                <div class="wall wall-1" id="wall-1">
-                        <div class="controles">
-                                <a href="#wall-3"><</a>
-                                <a href="#wall-2">></a>
-                        </div>
-                    <img src="{{ URL::asset('/imgs/banner.jpg') }}">
-                </div>
 
-                <div class="wall wall-2" id="wall-2">
-                     <div class="controles">
-                             <a href="#wall-1"><</a>
-                             <a href="#wall-3">></a>
-                     </div>
-
-                    <h1>carrosel numero - 2</h1>
-                </div>
-
-                <div class="wall wall-3" id="wall-3">
-                        <div class="controles">
-                                <a href="#wall-2"><</a>
-                                <a href="#wall-1">></a>
-                        </div>
-                    <h1>carrosel numero - 3</h1>
-                </div>
-            </div>
+        <div class="carousel">
+            <div><img src="{{ URL::asset('/imgs/banner.jpg') }}" alt="" /></div>
+            <div><img src="{{ URL::asset('/imgs/banner.jpg') }}" alt="" /></div>
         </div>
 
         <div class="container-perfils">

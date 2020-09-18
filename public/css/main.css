@@ -2,21 +2,22 @@
 
 body {
     margin: 0;
-    background-color:#dfe5ea;
 }
 
 .bg-yellow {
     background-color: #FFC82C;
-    color:#000000;
+    color: #000000;
 }
 
 .bg-light-purple {
-    background-color: #A17AD7;
-    color:#FFFFFF;
+    background-color: #c4c4c4;
+    color: #000000;
 }
+
 .bg-dark {
-    background-color: #000000;
-    color:#FFFFFF;
+    background-color: #555aa8;
+    ;
+    color: #FFFFFF;
 }
 
 /*
@@ -27,9 +28,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #7B3AD6;
+    /*background-color: #7B3AD6;
+    background: linear-gradient(100deg, rgba(47,13,94,1) 27%, rgba(81,20,166,1) 79%);*/
     padding: 10px;
     flex-wrap: wrap;
+    background-color: #3f3d561a;
 }
 
 #menu ul {
@@ -37,7 +40,6 @@ body {
 }
 
 #menu .center {
-    background-color: #A17AD7;
     width: 800px;
     border-radius: 100px;
     text-align: center;
@@ -47,12 +49,12 @@ body {
     justify-content: space-around;
     text-transform: uppercase;
     padding-top: 10px;
+    padding-bottom: 15px;
 }
 
 #menu .center a {
     text-decoration: none;
-    color:#FFFFFF;
-    padding-bottom: 10px;
+    color: #3f3d56;
 }
 
 #menu .center .active {
@@ -62,21 +64,20 @@ body {
 
 #menu .buttons {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 #menu .buttons .btn {
     text-transform: uppercase;
     font-weight: 600;
     padding: 10px;
-    border-radius: 30px;
+    border-radius: 5px;
     font-size: 20px;
     text-decoration: none;
     margin: 5px;
     width: 200px;
     text-align: center;
-    box-shadow: 1px 2px 0px 0px #000000;
 }
 
 
@@ -90,14 +91,23 @@ body {
     height: 100%;
     padding: 10px;
     padding-top: 180px;
+
+    background-image: url("../imgs/bg.png");
+    background-repeat: repeat-x;
+    background-size: contain;
 }
 
 #form-session .panel {
-    border-radius: 70px;
+    border-radius: 5px;
     height: 400px;
     width: 400px;
     padding: 30px;
     text-align: center;
+    background-color: #ebebeebd;
+}
+
+#form-session .panel-2{
+    background-color: #ffc82c85;
 }
 
 #form-session .panel h2 {
@@ -128,8 +138,8 @@ body {
     align-items: center;
 }
 
-#form-session .form input{
-    background-color: #864CD6;
+#form-session .form input {
+    background-color: #3f3d56;
     border: none;
     border-radius: 5px;
     padding: 15px;
@@ -137,7 +147,7 @@ body {
     margin-bottom: 5px;
 }
 
-#form-session .form input::placeholder { 
+#form-session .form input::placeholder {
     color: #FFFFFF;
     font-family: 'Kanit', sans-serif;
     font-size: 20px;
@@ -157,57 +167,31 @@ body {
 /*
     Home
 */
-
-#home .carrosel{
-    width: 100%;
-    height: 400px;
+#home .slick-dots li.slick-active button:before {
+    color: #FFC82C;
 }
 
-#home .carrosel .wall{
-    display: none;
-    width: 100%;
-    height: 100%;
-}
-#home .carrosel .wall img {
-    max-height: 400px;
-    width: 100%;
-}
-
-#home .carrosel .wall .controles  {
-    position: absolute;
-    display: flex;
-    width: 100%;
-    height: 400px;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#home .carrosel .wall .controles a {
-    text-decoration: none;
-    font-size: 50px;
-    color: #FFFFFF;
-    margin: 10px;
-}
-
-/* Corzinha de fundo para diferenciar */
-#home .carrosel .wall-1{ background-color: #f00; }
-#home .carrosel .wall-2{ background-color: #0f0; }
-#home .carrosel .wall-3{ background-color: #00f; }
-
-#home .carrosel .wall:target{
+#home .slick-slide img {
     display: block;
+    width: 100%;
+    height: 500px;
+}
+
+#home .slick-dots li button:before {
+    font-size: 60px;
 }
 
 #home .container-perfils {
     display: flex;
     flex-flow: wrap;
+    justify-content: center;
 }
 
 #home .container-perfils .panel-perfil {
     display: flex;
     flex-direction: column;
     margin: 10px;
-    background-color: #7b3ad6;
+    background-color: #3f3d56;
     color: #FFFFFF;
     width: 380px;
 }
@@ -222,14 +206,17 @@ body {
     display: flex;
     justify-content: space-around;
 }
+
 #home .container-perfils .panel-perfil .informacao .usuario {
     text-align: center;
 }
+
 #home .container-perfils .panel-perfil .informacao .usuario img {
     height: 130px;
     width: 130px;
     border-radius: 100px
 }
+
 #home .container-perfils .panel-perfil .informacao .categoria {
     display: flex;
     flex-direction: column;
@@ -247,7 +234,7 @@ body {
     text-decoration: none;
     border-radius: 30px;
     padding: 5px;
-    margin:3px;
+    margin: 3px;
 }
 
 #home .container-perfils .panel-perfil .informacao .categoria p {
@@ -260,8 +247,8 @@ body {
 }
 
 #home .container-perfils .panel-perfil .informacao .categoria .saiba-mais {
-   text-align: end;
-   color: #FFC82C;
+    text-align: end;
+    color: #FFC82C;
 }
 
 /*
@@ -270,22 +257,53 @@ body {
 #perfil-fotografo {
     display: flex;
     flex-direction: column;
+    background-image: url("../imgs/bg2.png");
+    background-size: contain;
+    background-repeat: repeat;
+    padding-bottom: 100px;
+    padding-top: 200px;
 }
+
 #perfil-fotografo .topo {
     width: 100%;
 }
-#perfil-fotografo .topo .banner, #perfil-fotografo .topo .banner img {
+
+#perfil-fotografo .topo .banner,
+#perfil-fotografo .topo .banner img {
     width: 100%;
     height: 300px;
 }
 
+#perfil-fotografo .btn-portifolio {
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+#perfil-fotografo .btn-portifolio .btn {
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 16px;
+    border-radius: 5px;
+    font-size: 30px;
+    text-decoration: none;
+    margin: 5px;
+    width: 330px;
+    text-align: center;
+    background-color: #ff6584;
+    color: #FFFFFF;
+
+}
 
 #perfil-fotografo .topo .usuario img {
     height: 200px;
     width: 200px;
-    border-radius: 100px;
+    border-radius: 22px;
     margin-right: 15px;
-} 
+    box-shadow: 0px 2px 0px 5px #3f3d56;
+}
 
 #perfil-fotografo .topo .usuario {
     margin-top: -150px;
@@ -298,32 +316,38 @@ body {
 #perfil-fotografo .topo .usuario h2 {
     color: #000000;
     font-size: 50px;
-    background-color: #ffc82cc2;
+    background-color: #ffc82c;
     padding-left: 30px;
     padding-right: 110px;
     margin: 0;
+    border-radius: 5px;
 }
 
 #perfil-fotografo .descricao {
     display: flex;
     flex-wrap: wrap;
     padding: 30px;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 #perfil-fotografo .descricao .painel {
-    background-color: #864CD6;
-    color: #FFFFFF;
+    background-color: #ffc82c;
+    color: #000000;
     width: 450px;
     padding: 5px;
-}   
+    border-radius: 5px;
+    margin-top: 25px;
+}
+
 #perfil-fotografo .descricao .painel .titulo {
-    background-color: #7b3ad6;
+    background-color: #ffc82c;
     text-transform: uppercase;
     padding: 20px;
     width: 310px;
     margin-left: -20px;
     margin-top: -20px;
+    border-radius: 5px;
+    border: solid 1px;
 }
 
 #perfil-fotografo .descricao .painel .titulo h3 {

@@ -5,7 +5,7 @@
 
 @section('conteudo-view')
 <div id="form-session">
-    <div class="panel bg-light-purple">
+    <div class="panel panel-2">
         <h2>CADASTRO</h2>
         <form action="{{URL::to('/')}}" method="POST">
             {{ csrf_field() }}
