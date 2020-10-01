@@ -41,6 +41,12 @@ return [
             'provider' => 'users',
         ],
 
+        'web' => [
+            'driver' => 'session',
+            'provider' => 'usuarios',
+            'redirectTo' => 'home.index'
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -69,6 +75,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+
+        'usuarios' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Usuario::class,
         ],
 
         // 'users' => [
