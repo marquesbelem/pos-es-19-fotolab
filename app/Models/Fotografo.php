@@ -3,14 +3,17 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Fotografo extends Model
+class Fotografo extends Usuario
 {
     use HasFactory;
 
-    public function usuario()
+    const TABLE_NAME = 'fl_fotografos';
+
+    protected $table = self::TABLE_NAME;
+
+    public function fotoCapa()
     {
-        return $this->belongsTo(Usuario::class, 'id_usuario');
+        return $this->belongsTo(Imagem::class, 'id', 'id_foto_perfil');
     }
 }

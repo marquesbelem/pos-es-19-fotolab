@@ -55,7 +55,7 @@
                         <p>
                                 mini apresentação
                         </p>
-                        <a href="{{URL::to('/perfil-fotografo')}}" class="saiba-mais">Saiba mais</a>
+                        <a href="{{URL::to('/fotografo/perfil/1')}}" class="saiba-mais">Saiba mais</a>
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                         <p>
                                 mini apresentação
                         </p>
-                        <a href="{{URL::to('/perfil-fotografo')}}" class="saiba-mais">Saiba mais</a>
+                        <a href="{{URL::to('/fotografo/perfil/2')}}" class="saiba-mais">Saiba mais</a>
                     </div>
                 </div>
             </div>

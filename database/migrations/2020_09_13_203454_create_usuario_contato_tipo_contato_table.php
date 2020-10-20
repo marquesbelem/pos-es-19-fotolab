@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Contato as ContatoModel;
-use App\Models\Endereco;
+use App\Models\Endereco as EnderecoModel;
 use App\Models\TipoContato as TipoContatoModel;
 use App\Models\Usuario as UsuarioModel;
 use Illuminate\Database\Migrations\Migration;
@@ -37,14 +37,14 @@ class CreateUsuarioContatoTipoContatoTable extends Migration
             $table->foreign('id_tipo')->references('id')->on(TipoContatoModel::TABLE_NAME);
         });
 
-        Schema::create(Endereco::TABLE_NAME, function (Blueprint $table) {
+        Schema::create(EnderecoModel::TABLE_NAME, function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_usuario');
             $table->string('descricao');
             $table->timestamps();
         });
 
-        Schema::table(ContatoModel::TABLE_NAME, function (Blueprint $table) {
+        Schema::table(EnderecoModel::TABLE_NAME, function (Blueprint $table) {
             $table->foreign('id_usuario')->references('id')->on(UsuarioModel::TABLE_NAME);
         });
     }
@@ -56,8 +56,8 @@ class CreateUsuarioContatoTipoContatoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('endereco');
-        Schema::dropIfExists('tipo_contato');
-        Schema::dropIfExists('contatos');
+        Schema::dropIfExists(EnderecoModel::TABLE_NAME);
+        Schema::dropIfExists(TipoContatoModel::TABLE_NAME);
+        Schema::dropIfExists(ContatoModel::TABLE_NAME);
     }
 }
