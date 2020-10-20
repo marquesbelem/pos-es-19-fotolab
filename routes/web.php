@@ -18,12 +18,15 @@ Route::namespace('App\Http\Controllers')
     Route::get('/', 'HomeController@Home');
 
     Route::group(['prefix' => 'usuario'], function () {
-        Route::get('/perfil', 'Usuario@obterDadosPerfil');
+        Route::get('/perfil', 'UsuarioController@obterDadosPerfil');
         
-        Route::group(['prefix' => 'fotografo'], function () {
-            Route::get('/listar', 'Usuario@listarFotografo');
+        Route::group(['prefix' => 'fotografo', 'middleware' => 'checkIsFotografo'], function () {
+            Route::get('/listar', 'UsuarioController@listarFotografo');
         });
-        
+    });
+
+    Route::group(['prefix' => 'fotografo'], function () {
+        Route::get('/perfil/{id}', 'FotografoController@perfil');
     });
     
     Route::get('/signin', 'LoginController@Login');

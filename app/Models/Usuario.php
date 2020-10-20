@@ -12,6 +12,10 @@ class Usuario extends User
 
     protected $table = self::TABLE_NAME;
 
+    protected $fillable = ['nome', 'sobrenome', 'email', 'senha'];
+
+    protected $guarded = ['id', 'senha'];
+
     public function fotografo()
     {
         return $this->hasOne(Fotografo::class, 'id_usuario');

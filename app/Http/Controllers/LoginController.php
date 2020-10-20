@@ -11,10 +11,10 @@ class LoginController extends Controller
     public function login() 
     {
         if (!Auth::check()) {
-            return view('login.index');
         }
+        return view('login.index');
 
-        return redirect('/');
+        // return redirect('/');
     }
 
     public function autenticarUsuario()
@@ -43,6 +43,6 @@ class LoginController extends Controller
             abort(403, "E-mail ou senha inválido!");
         }
 
-        return view('login.success');
+        return view('home.index');
     }
 }
