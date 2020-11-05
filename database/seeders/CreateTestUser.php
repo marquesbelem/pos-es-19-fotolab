@@ -11,7 +11,6 @@ use Illuminate\Database\Seeder;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 
 class CreateTestUser extends Seeder
 {
@@ -39,13 +38,11 @@ class CreateTestUser extends Seeder
             $testUser = Usuario::firstOrCreate($testUsersData);
 
             dump("Usuário de teste: $testUser->nome; criado com sucesso!");
-            
-            $image = new File(public_path('imgs/foto.jpg'));
 
             // Coloque a imagem dentro do storage/app deste projeto com os dados abaixo
             $imageData = [
-                'disk' => 'local',
-                'caminho' => $image->path(),
+                'disk' => 'imgs',
+                'nome_arquivo' => 'foto.jpg',
                 'id_usuario' => $testUser->id
             ];
             $image = Imagem::firstOrCreate($imageData);

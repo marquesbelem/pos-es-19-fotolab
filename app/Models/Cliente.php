@@ -9,6 +9,4 @@ class Cliente extends Model
 {
     use HasFactory;
 
-    const TABLE_NAME = 'fl_clientes';
-    protected $table = self::TABLE_NAME;
 }

@@ -4,16 +4,16 @@
     <div id="perfil-fotografo">
         <div class="topo">
             <div class="banner">
-                <img src="{{ URL::asset($fotografo->foto_perfil_capa) ?? URL::asset('/imgs/banner.jpg') }}">
+                <img src="{{ asset(Arr::get($fotografo, 'fotoCapa.url', 'imgs/banner.jpg')) }}">
             </div>
             <div class="usuario">
-                <img src="{{ URL::asset($fotografo->foto_perfil) ?? URL::asset('/imgs/foto.jpg') }}">
-                <h2>{{$fotografo->nome}}</h2>
+                <img src="{{ asset(Arr::get($fotografo, 'fotoPerfil.url', 'imgs/foto.jpg')) }}">
+                <h2>{{$fotografo['nome']}}</h2>
             </div>
         </div>
 
         <div class="descricao">
-            {{$fotografo->descricao}}
+            {{$fotografo['descricao']}}
         </div>
     </div>
 @endsection

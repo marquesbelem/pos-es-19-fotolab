@@ -28,7 +28,7 @@ class CreateProfileTypes extends Seeder
                 $model = TipoPerfil::firstOrCreate($type);
     
                 if ($model->wasRecentlyCreated) {
-                    dump("Tipo: $model->nome; foi criado com sucesso!");
+                    dump("Tipo: $model->tipo_perfil; foi criado com sucesso!");
                 }
             }
             DB::commit();
