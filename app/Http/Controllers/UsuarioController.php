@@ -27,7 +27,6 @@ class UsuarioController extends Controller
 
             $usuario->save();
         } catch (Throwable $e) {
-            
             return redirect('usuario.cadastro.erro', 400);
         }
 

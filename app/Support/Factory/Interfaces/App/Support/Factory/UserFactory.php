@@ -18,13 +18,13 @@ class UserFactory implements ModelFactoryInterface
     /**
      * Cria um tipo de usuário de acordo com o tipo de perfil informado.
      * Os possíveis tipos retornados estão listados na constante USER_TYPES.
-     * 
+     *
      * @version 1.0.0
-     * 
+     *
      * @author Alan
-     * 
+     *
      * @param array $params
-     * 
+     *
      * @return mixed
      */
     public static function make(array $params = []) : Model
@@ -40,4 +40,3 @@ class UserFactory implements ModelFactoryInterface
         return new Usuario();
     }
 }
-

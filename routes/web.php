@@ -26,7 +26,7 @@ Route::namespace('App\Http\Controllers')
             Route::get('/sucesso', function () {
                 return view('usuario.cadastro.sucesso');
             });
-            Route::get('/erro', 'RegisterController@Register');
+            Route::get('/erro', 'RegisterController@form');
         });
 
         Route::group(['prefix' => 'fotografo', 'middleware' => 'checkIsFotografo'], function () {

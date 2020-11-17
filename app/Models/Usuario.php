@@ -38,7 +38,7 @@ class Usuario extends User
 
     public function setAtributos(array $atributos)
     {
-        foreach($this->fillable as $fillableAtributte) {
+        foreach ($this->fillable as $fillableAtributte) {
             if (isset($atributo[$fillableAtributte])) {
                 $this->$fillableAtributte = $atributo[$fillableAtributte];
             }
