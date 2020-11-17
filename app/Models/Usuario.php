@@ -36,7 +36,16 @@ class Usuario extends User
         return $this->belongsTo(Imagem::class, 'id_foto_perfil');
     }
 
-    public function getAuthPassword()
+    public function setAtributos(array $atributos)
+    {
+        foreach($this->fillable as $fillableAtributte) {
+            if (isset($atributo[$fillableAtributte])) {
+                $this->$fillableAtributte = $atributo[$fillableAtributte];
+            }
+        }
+    }
+
+    public function temEmailUnico()
     {
      return $this->senha;
     }
