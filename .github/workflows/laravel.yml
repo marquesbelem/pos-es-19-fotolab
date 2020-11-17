@@ -2,7 +2,9 @@ name: Laravel
 
 on:
   push:
-    branches: [ qa, master ]
+    branches:
+      - qa
+      - master
 
 jobs:
   laravel-tests:
