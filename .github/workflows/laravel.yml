@@ -30,3 +30,5 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
+    - name: Verify PSR-12 Conformity
+      run: ./vendor/bin/phpcs
