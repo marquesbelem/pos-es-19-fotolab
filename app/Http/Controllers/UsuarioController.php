@@ -2,32 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CadastrarUsuario;
 use App\Models\Usuario;
 use App\Support\Factory\UserFactory;
 use Throwable;
 
 class UsuarioController extends Controller
 {
-    public function criar()
+    public function formulario()
     {
-        $usuario = UserFactory::make([
-            'tipo' => request()->get('tipo', 'cliente')
-        ]);
+        return view('usuario.cadastro.formulario');
+    }
 
-        $dadosUsuario = request()->validate(
-            $usuario->criarNovoUsuarioRegras()
-        );
-
+    public function criar(CadastrarUsuario $request)
+    {
         try {
-            $usuario->setarAtributos($dadosUsuario);
+            $dadosUsuario = $request->validated();
+            $usuario = UserFactory::make([
+                'tipo' => $dadosUsuario['tipo'],
+                'atributos' => $dadosUsuario
+            ]);
+
+            $usuario->setAtributos($dadosUsuario);
+
+            $usuario->save();
         } catch (Throwable $e) {
-            return redirect('usuario.cadastro.erro', 400)->with('error', $e);
+            
+            return redirect('usuario.cadastro.erro', 400);
         }
 
         return redirect('usuario.cadastro.sucesso')
-            ->with('usuario', $usuario);
+            ->with('nome_usuario', $usuario->nome);
     }
-
+    
     public function listarUsuarios()
     {
         return [];

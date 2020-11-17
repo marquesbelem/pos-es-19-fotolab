@@ -2,6 +2,8 @@
 
 namespace App\Support\Factory;
 
+use App\Models\Cliente;
+use App\Models\Fotografo;
 use App\Models\Usuario;
 use App\Support\Factory\Interfaces\ModelFactoryInterface;
 use Illuminate\Database\Eloquent\Model;
@@ -9,8 +11,8 @@ use Illuminate\Database\Eloquent\Model;
 class UserFactory implements ModelFactoryInterface
 {
     const USER_TYPES = [
-        'Cliente' => 'App\Models\Cliente',
-        'Fotografo' => 'App\Models\Fotografo'
+        'Cliente' => Cliente::class,
+        'Fotografo' => Fotografo::class
     ];
 
     /**
@@ -29,7 +31,7 @@ class UserFactory implements ModelFactoryInterface
     {
         $tipo = $params['tipo'];
         
-        $classeTipo = self::USER_TYPES[ucword($tipo)];
+        $classeTipo = self::USER_TYPES[ucwords($tipo)];
 
         if (!empty($classeTipo)) {
             return new $classeTipo();
