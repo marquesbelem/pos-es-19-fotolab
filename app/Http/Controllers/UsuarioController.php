@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CadastrarUsuario;
-use App\Models\Usuario;
 use App\Support\Factory\UserFactory;
+use Exception;
 use Throwable;
 
 class UsuarioController extends Controller
@@ -23,7 +23,11 @@ class UsuarioController extends Controller
                 'atributos' => $dadosUsuario
             ]);
 
-            $usuario->setAtributos($dadosUsuario);
+            $usuario->firstOrNew($dadosUsuario['email']);
+
+            if (!empty($usuario->id)) {
+                throw new Exception(trans('CreateUser.errors.userExists'));
+            }
 
             $usuario->save();
         } catch (Throwable $e) {
