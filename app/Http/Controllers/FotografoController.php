@@ -7,8 +7,7 @@ use App\Models\TipoPerfil;
 
 class FotografoController extends Controller
 {
-    public function perfil($id)
-    {
+    public function perfil($id) {
         $fotografo = Fotografo::whereId($id)
             ->whereIdTipoPerfil(TipoPerfil::whereTipoPerfil('Fotografo')->first()->id)
             ->with([
