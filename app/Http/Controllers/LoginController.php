@@ -10,17 +10,28 @@ class LoginController extends Controller
 {
     public function login() 
     {
-        if (!Auth::check()) {
+        if (Auth::check()) {
+            return redirect('/');
         }
-        return view('login.index');
 
-        // return redirect('/');
+        return view('login.index');
+    }
+
+    public function logout() 
+    {
+        if (!Auth::check()) {
+            return redirect('/signin');
+        }
+
+        Auth::logout();
+
+        return redirect('/');
     }
 
     public function autenticarUsuario()
     {
         $params = request()->all();
-
+        
         $validation = Validator::make($params, [
             'email' => 'required|string',
             'senha' => 'required|string'
