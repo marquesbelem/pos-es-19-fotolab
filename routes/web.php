@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +40,7 @@ Route::namespace('App\Http\Controllers')
         Route::get('/perfil/{id}', 'FotografoController@perfil');
     });
     
-    Route::get('/signin', 'LoginController@Login');
+    Route::get('/signin', 'LoginController@login');
+    Route::get('/signout', 'LoginController@logout');
     Route::post('/signin/authenticate', 'LoginController@autenticarUsuario');
 });
