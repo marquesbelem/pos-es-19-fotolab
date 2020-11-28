@@ -9,3 +9,7 @@ $('.carousel').slick({
     autoplay: true,
     arrows: false
   });
+
+$('.error-alert').click(function (e) {
+  $(this).remove();
+});
