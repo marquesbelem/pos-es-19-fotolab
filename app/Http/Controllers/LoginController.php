@@ -20,11 +20,22 @@ class LoginController extends Controller
 
     public function signout()
     {
-        if (!Auth::check()) {
+        if (Auth::check()) {
+            return redirect('/');
         }
-        return view('login.index');
 
-        // return redirect('/');
+        return view('login.index');
+    }
+
+    public function logout() 
+    {
+        if (!Auth::check()) {
+            return redirect('/signin');
+        }
+
+        Auth::logout();
+
+        return redirect('/');
     }
 
     public function autenticarUsuario(AuthenticationRequest $request)
