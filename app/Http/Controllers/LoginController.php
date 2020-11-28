@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
-    public function signin()
+    public function signin() 
     {
         if (Auth::check()) {
             return redirect('/');
@@ -18,7 +18,7 @@ class LoginController extends Controller
         return view('login.index');
     }
 
-    public function signout()
+    public function signout() 
     {
         if (!Auth::check()) {
         }
