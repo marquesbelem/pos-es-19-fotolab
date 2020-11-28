@@ -40,7 +40,7 @@ Route::namespace('App\Http\Controllers')
         Route::get('/perfil/{id}', 'FotografoController@perfil');
     });
     
-    Route::get('/signin', 'LoginController@login');
-    Route::get('/signout', 'LoginController@logout');
+    Route::get('/signin', 'LoginController@signin');
+    Route::get('/signout', 'LoginController@signout');
     Route::post('/signin/authenticate', 'LoginController@autenticarUsuario');
 });

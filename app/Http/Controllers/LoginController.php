@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AuthenticationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
-    public function login() 
+    public function signin() 
     {
         if (Auth::check()) {
             return redirect('/');
@@ -17,7 +18,7 @@ class LoginController extends Controller
         return view('login.index');
     }
 
-    public function logout() 
+    public function signout() 
     {
         if (!Auth::check()) {
             return redirect('/signin');
@@ -28,30 +29,16 @@ class LoginController extends Controller
         return redirect('/');
     }
 
-    public function autenticarUsuario()
+    public function autenticarUsuario(AuthenticationRequest $request)
     {
-        $params = request()->all();
-        
-        $validation = Validator::make($params, [
-            'email' => 'required|string',
-            'senha' => 'required|string'
-        ]);
+        $authenticationParams = $request->validated();
 
-        if ($validation->fails()) {
-            $responseContent = [
-                'status' => 'error',
-                'data' => $validation->errors()
-            ];
-            return response($responseContent, 403);
-        }
+        $authenticationParams['password'] = $authenticationParams['senha'];
 
-        $authenticationInfo = [
-            'email' => $params['email'],
-            'password' => $params['senha']
-        ];
-
-        if (!Auth::attempt($authenticationInfo)) {
-            abort(403, "E-mail ou senha inválido!");
+        if (!Auth::attempt($authenticationParams)) {
+            return redirect('/signin')->withErrors([
+                'authenticationError' => trans('Login.authentication.error')
+            ]);
         }
 
         return view('home.index');
