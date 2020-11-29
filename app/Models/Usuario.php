@@ -38,7 +38,7 @@ class Usuario extends User
 
     public function setPasswordAttribute($value)
     {
-        if(Hash::needsRehash($value)) {
+        if (Hash::needsRehash($value)) {
             $value = Hash::make($value);
         }
         $this->attributes['password'] = $value;
