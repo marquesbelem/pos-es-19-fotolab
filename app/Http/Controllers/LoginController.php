@@ -18,7 +18,7 @@ class LoginController extends Controller
         return view('login.index');
     }
 
-    public function signout() 
+    public function signout()
     {
         if (!Auth::check()) {
             return redirect('/signin');
