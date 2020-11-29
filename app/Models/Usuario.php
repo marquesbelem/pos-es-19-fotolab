@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Hash;
 
 class Usuario extends User
 {
@@ -12,9 +13,9 @@ class Usuario extends User
 
     protected $table = self::TABLE_NAME;
 
-    protected $fillable = ['nome', 'sobrenome', 'email', 'senha'];
+    protected $fillable = ['nome', 'sobrenome', 'email', 'password'];
 
-    protected $guarded = ['id', 'senha'];
+    protected $guarded = ['id', 'password'];
 
     public function fotografo()
     {
