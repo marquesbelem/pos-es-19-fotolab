@@ -33,7 +33,10 @@ class LoginController extends Controller
     {
         $authenticationParams = $request->validated();
 
-        $authenticationParams['password'] = $authenticationParams['senha'];
+        $authenticationParams = [
+            'email' => $authenticationParams['email'],
+            'password' => $authenticationParams['senha']
+        ];
 
         if (!Auth::attempt($authenticationParams)) {
             return redirect('/signin')->withErrors([
