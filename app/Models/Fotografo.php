@@ -8,12 +8,8 @@ class Fotografo extends Usuario
 {
     use HasFactory;
 
-    const TABLE_NAME = 'fl_fotografos';
-
-    protected $table = self::TABLE_NAME;
-
     public function fotoCapa()
     {
-        return $this->belongsTo(Imagem::class, 'id', 'id_foto_perfil');
+        return $this->belongsTo(Imagem::class, 'id_foto_capa', 'id');
     }
 }
