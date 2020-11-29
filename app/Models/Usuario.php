@@ -36,6 +36,14 @@ class Usuario extends User
         return $this->belongsTo(Imagem::class, 'id_foto_perfil');
     }
 
+    public function setPasswordAttribute($value)
+    {
+        if(Hash::needsRehash($value)) {
+            $value = Hash::make($value);
+        }
+        $this->attributes['password'] = $value;
+    }
+
     public function setAtributos(array $atributos)
     {
         foreach ($this->fillable as $fillableAtributte) {
