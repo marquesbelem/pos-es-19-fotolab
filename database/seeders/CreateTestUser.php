@@ -31,7 +31,7 @@ class CreateTestUser extends Seeder
                 'nome' => 'Alan',
                 'sobrenome' => 'Santana',
                 'email' => 'alan@linduxo.com.br',
-                'senha' => Hash::make('123'),
+                'password' => Hash::make('123'),
                 'data_nascimento' => $dataNascimento,
                 'id_tipo_perfil' => $tipoPerfil->id,
             ];
