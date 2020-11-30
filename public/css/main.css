@@ -28,6 +28,13 @@ body {
     padding: 2px 10px;
 }
 
+.carousel-photo {
+    height: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 /*
     Menu 
 */

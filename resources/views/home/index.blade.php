@@ -7,8 +7,9 @@
     <div id="home">
 
         <div class="carousel">
-            <div><img src="{{ URL::asset('/imgs/banner.jpg') }}" alt="" /></div>
-            <div><img src="{{ URL::asset('/imgs/banner.jpg') }}" alt="" /></div>
+            <div class="carousel-photo" style="background-image: url({{ URL::asset('/imgs/banner.jpg') }})"></div>
+            <div class="carousel-photo" style="background-image: url({{ URL::asset('/imgs/banner-2.jpg') }})"></div>
+            <div class="carousel-photo" style="background-image: url({{ URL::asset('/imgs/banner-3.jpg') }})"></div>
         </div>
 
         <div class="container-perfils">
