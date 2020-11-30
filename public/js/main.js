@@ -1,5 +1,3 @@
-window.location = "#wall-1";
-
 $('.carousel').slick({
     dots: true,
     infinite: true,
