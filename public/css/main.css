@@ -28,6 +28,13 @@ body {
     padding: 2px 10px;
 }
 
+.carousel-photo {
+    height: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 /*
     Menu 
 */
@@ -153,6 +160,9 @@ body {
     padding: 15px;
     margin-top: 5px;
     margin-bottom: 5px;
+    color: #FFFFFF;
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
 }
 
 #form-session .form input::placeholder {
