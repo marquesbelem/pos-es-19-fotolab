@@ -5,7 +5,6 @@
 
 @section('conteudo-view')
     <div id="home">
-
         <div class="carousel">
             <div class="carousel-photo" style="background-image: url({{ URL::asset('/imgs/banner.jpg') }})"></div>
             <div class="carousel-photo" style="background-image: url({{ URL::asset('/imgs/banner-2.jpg') }})"></div>
