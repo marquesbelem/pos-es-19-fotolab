@@ -35,28 +35,30 @@ class CreateTestUser extends Seeder
                 'data_nascimento' => $dataNascimento,
                 'id_tipo_perfil' => $tipoPerfil->id,
             ];
-    
+
             $testUser = Usuario::firstOrCreate($testUsersData);
 
             dump("Usuário de teste: $testUser->nome; criado com sucesso!");
-            
+
             $image = new File(public_path('imgs/foto.jpg'));
 
             // Coloque a imagem dentro do storage/app deste projeto com os dados abaixo
             $imageData = [
-                'disk' => 'local',
-                'caminho' => $image->path(),
+                'disk' => 'imgs',
+                'nome_arquivo' => $image->getFilename(),
                 'id_usuario' => $testUser->id
             ];
+
             $image = Imagem::firstOrCreate($imageData);
             dump("Imagem salva com sucesso!");
+
             if (!$image) {
                 throw new Exception('Erro ao inserir imagem!');
             }
-            
-            $testUser->id_foto_perfil = $image->id;
-    
+
+            $testUser->url_foto_perfil = $image->url;
             $testUser->save();
+
             dump("Foto de perfil salva com sucesso!");
         });
     }

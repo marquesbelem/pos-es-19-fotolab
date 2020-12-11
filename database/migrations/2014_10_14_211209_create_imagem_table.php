@@ -19,7 +19,7 @@ class CreateImagemTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_usuario');
             $table->string('disk');
-            $table->string('caminho');
+            $table->string('nome_arquivo');
             $table->timestamps();
         });
 

@@ -27,8 +27,9 @@ class UsuarioController extends Controller
 
             $usuario->save();
         } catch (Throwable $e) {
-            
-            return redirect('usuario.cadastro.erro', 400);
+            return redirect('usuario.cadastro.erro', 400)->withErrors([
+                'generalError' => $e->getMessage()
+            ]);
         }
 
         return redirect('usuario.cadastro.sucesso')

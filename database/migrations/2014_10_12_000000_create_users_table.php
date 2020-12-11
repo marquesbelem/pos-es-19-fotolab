@@ -20,24 +20,20 @@ class CreateUsersTable extends Migration
             $table->id();
 
             $table->unsignedTinyInteger('id_tipo_perfil');
-            $table->unsignedBigInteger('id_foto_perfil')->nullable();
-            $table->unsignedBigInteger('id_foto_capa')->nullable();
-            
+            $table->string('url_foto_perfil')->nullable();
+            $table->string('url_foto_capa')->nullable();
+
             $table->string('nome');
             $table->string('sobrenome');
             $table->string('email')->unique();
             $table->string('senha');
             $table->boolean('bloqueado')->default(false);
             $table->string('descricao')->nullable();
-            
+
             $table->date('data_nascimento');
 
             $table->rememberToken();
             $table->timestamps();
-        });
-
-        Schema::table(Usuario::TABLE_NAME, function (Blueprint $table) {
-            $table->foreign('id_tipo_perfil')->references('id')->on(TipoPerfil::TABLE_NAME);
         });
     }
 

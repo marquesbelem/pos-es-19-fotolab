@@ -26,14 +26,14 @@ class CadastrarUsuario extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'bail|required|string',
+            'email' => 'bail|required|email',
             'senha' => 'bail|required|string|between:8,15',
-            'nome' => 'bail|required|string|size:20',
+            'nome' => 'bail|required|string|alpha|size:20',
             'sobrenome' => 'bail|required|string|max:100',
             'data_nascimento' => 'bail|required|date_format:d/m/Y',
             'imagem_perfil' => 'sometimes|nullable|file|max:4000|mimes:png,jpg,jpeg',
             'foto_capa' => 'sometimes|nullable|file|max:4000|mimes:png,jpg,jpeg',
-            'tipo' => 'string'
+            'tipo' => 'integer|min:1'
         ];
     }
 
