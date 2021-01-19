@@ -8,7 +8,7 @@ class Fotografo extends Usuario
 {
     use HasFactory;
 
-    const TABLE_NAME = 'fl_fotografos';
+    const TABLE_NAME = 'fl_usuario';
 
     protected $table = self::TABLE_NAME;
 

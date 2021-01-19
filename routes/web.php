@@ -24,7 +24,7 @@ Route::namespace('App\Http\Controllers')
 
         Route::group(['prefix' => 'cadastro'], function () {
             Route::get('/', 'UsuarioController@formulario');
-            Route::post('/novo', 'UsuarioController@criar');
+            Route::post('/criar', 'UsuarioController@criar');
             Route::get('/sucesso', function () {
                 return view('usuario.cadastro.sucesso');
             });
@@ -39,7 +39,7 @@ Route::namespace('App\Http\Controllers')
     Route::group(['prefix' => 'fotografo'], function () {
         Route::get('/perfil/{id}', 'FotografoController@perfil');
     });
-    
+
     Route::get('/signin', 'LoginController@signin');
     Route::get('/signout', 'LoginController@signout');
     Route::post('/signin/authenticate', 'LoginController@autenticarUsuario');

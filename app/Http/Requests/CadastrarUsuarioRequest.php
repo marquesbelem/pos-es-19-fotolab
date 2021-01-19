@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CadastrarUsuario extends FormRequest
+class CadastrarUsuarioRequest extends FormRequest
 {
     protected $redirect = "usuario/cadastro#ft_form_novo_usuario";
 
@@ -28,7 +28,7 @@ class CadastrarUsuario extends FormRequest
         return [
             'email' => 'bail|required|email',
             'senha' => 'bail|required|string|between:8,15',
-            'nome' => 'bail|required|string|alpha|size:20',
+            'nome' => 'bail|required|string|regex:/([A-ú. ªº]+)/i|max:20',
             'sobrenome' => 'bail|required|string|max:100',
             'data_nascimento' => 'bail|required|date_format:d/m/Y',
             'imagem_perfil' => 'sometimes|nullable|file|max:4000|mimes:png,jpg,jpeg',

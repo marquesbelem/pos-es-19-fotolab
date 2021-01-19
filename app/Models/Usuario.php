@@ -34,20 +34,11 @@ class Usuario extends User
 
     public function getAuthPassword()
     {
-     return $this->senha;
-    }
-
-    public function setAtributos(array $atributos)
-    {
-        foreach($this->fillable as $fillableAtributte) {
-            if (isset($atributo[$fillableAtributte])) {
-                $this->$fillableAtributte = $atributo[$fillableAtributte];
-            }
-        }
+        return $this->senha;
     }
 
     public function temEmailUnico()
     {
-        return (self::whereEmail($this->email)->count() > 0);
+        return self::whereEmail($this->email)->count() > 0;
     }
 }

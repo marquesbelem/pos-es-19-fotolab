@@ -22,7 +22,7 @@ class TipoPerfilFactory extends Factory
     public function definition()
     {
         return [
-            'nome' => $this->faker->randomElements(['Cliente', 'Fotografo'])
+            'tipo_perfil' => $this->faker->randomElement(['Cliente', 'Fotografo'])
         ];
     }
 }

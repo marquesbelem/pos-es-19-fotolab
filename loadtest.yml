@@ -1,0 +1,21 @@
+config:
+  target: "http://localhost:8000"
+  phases:
+    - duration: 60
+      arrivalRate: 5
+      name: "Aquecimento"
+    - duration: 120
+      arrivalRate: 5
+      rampTo: 50
+      name: "Leve aumento no tráfego de usuários"
+    - duration: 120
+      arrivalRate: 50
+      name: "Período de alta carga"
+scenarios:
+  - name: "Ver fotografos"
+    flow:
+      - get:
+          url: "/"
+      - think: 5
+      - get:
+          url: "/fotografo/perfil/1"
