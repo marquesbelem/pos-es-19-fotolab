@@ -5,6 +5,14 @@
 
 @section('conteudo-view')
     <div id="form-session">
+        
+        <p id="authenticationErrors">
+            @include('templates.errors', [
+                'errors' => $errors,
+                'field' => 'email'
+            ])
+        </p>
+
         <form action="{{ URL::to('/') }}" method="POST" class="panel-2">
             {{ csrf_field() }}
             <div class="d-r">
