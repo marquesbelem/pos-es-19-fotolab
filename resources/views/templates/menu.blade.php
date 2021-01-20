@@ -7,7 +7,10 @@
         <a href="">Avaliação</a>
     </div>
     <div class="buttons">
-        <a href="{{URL::to('/register')}}" class="btn bg-yellow ">Cadastre - se</a>
+        @if(!Auth::check())
+            <a href="{{URL::to('/register')}}" class="btn bg-yellow ">Cadastre - se</a>
+        @endif
+
         @if(!Auth::check())
             <a href="{{URL::to('/signin')}}" class="btn bg-light-purple">Acessar</a>
         @else
