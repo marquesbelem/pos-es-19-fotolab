@@ -35,10 +35,6 @@
                     <input type="text" name="email" value="" placeholder="Email">
                     <input type="text" name="senha" value="" placeholder="Senha">
                 </div>
-               <!-- <div class="d-r">
-                    <input type="file" name="imagem_perfil" value="" placeholder="imagem_perfil" accept="image/*">
-                    <input type="file" name="foto_capa" value="" placeholder="foto_capa" multiple accept="image/*">
-                </div>-->
                 <div class="d-r">
                     <label for="imagem_perfil" name="imagem_perfil" class="input-file">Selecionar foto de perfil</label>
                     <input id="imagem_perfil" accept="image/*" type='file'>
