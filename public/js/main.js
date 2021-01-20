@@ -44,3 +44,28 @@ $('.carousel-center').slick({
     }
   ]
 });
+
+var $inputPerfil    = document.getElementById('imagem_perfil'),
+    $fileNamePerfil = document.getElementById('file_name_imagem_perfil');
+
+$inputPerfil.addEventListener('change', function(){
+  $fileNamePerfil.textContent = this.value;
+})
+
+/*var $inputDestaques    = document.getElementById('foto_capa'),
+    $fileNameDestaques = document.getElementById('file_name_foto_capa');
+
+$inputDestaques.addEventListener('change', function(){
+  this.files
+  $fileNameDestaques.textContent = this.value;
+})*/
+
+updateList = function() {
+  var input = document.getElementById('foto_capa');
+  var output = document.getElementById('file_name_foto_capa');
+  var children = "";
+  for (var i = 0; i < input.files.length; ++i) {
+      children += '<li>' + input.files.item(i).name + '</li>';
+  }
+  output.innerHTML = '<ul>'+children+'</ul>';
+}

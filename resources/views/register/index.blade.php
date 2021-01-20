@@ -35,9 +35,19 @@
                     <input type="text" name="email" value="" placeholder="Email">
                     <input type="text" name="senha" value="" placeholder="Senha">
                 </div>
+               <!-- <div class="d-r">
+                    <input type="file" name="imagem_perfil" value="" placeholder="imagem_perfil" accept="image/*">
+                    <input type="file" name="foto_capa" value="" placeholder="foto_capa" multiple accept="image/*">
+                </div>-->
                 <div class="d-r">
-                    <input type="text" name="imagem_perfil" value="" placeholder="imagem_perfil">
-                    <input type="text" name="imagem_perfil" value="" placeholder="foto_capa">
+                    <label for="imagem_perfil" name="imagem_perfil" class="input-file">Selecionar foto de perfil</label>
+                    <input id="imagem_perfil" accept="image/*" type='file'>
+                    <span id='file_name_imagem_perfil' class="path-file"></span>
+                </div>
+                <div class="d-r">
+                    <label for="foto_capa" name="foto_capa" class="input-file">Selecionar fotos principais</label>
+                    <input id="foto_capa" accept="image/*" multiple type='file' onchange="javascript:updateList()">
+                    <span id='file_name_foto_capa' class="path-file"></span>
                 </div>
                 <div class="d-r j-ct-c">
                     <button type="submit" name="login" class="btn bg-dark w-1">Cadastrar</button>
