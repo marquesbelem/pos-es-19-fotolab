@@ -32,7 +32,34 @@ class Usuario extends User
         return $this->hasMany(Usuario::class, 'id_usuario');
     }
 
+    public function fotoPerfil()
+    {
+        return $this->belongsTo(Imagem::class, 'id_foto_perfil');
+    }
+    
     public function getAuthPassword()
+    {
+        return $this->senha;
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        if (Hash::needsRehash($value)) {
+            $value = Hash::make($value);
+        }
+        $this->attributes['password'] = $value;
+    }
+
+    public function setAtributos(array $atributos)
+    {
+        foreach ($this->fillable as $fillableAtributte) {
+            if (isset($atributo[$fillableAtributte])) {
+                $this->$fillableAtributte = $atributo[$fillableAtributte];
+            }
+        }
+    }
+
+    public function temEmailUnico()
     {
      return $this->senha;
     }
