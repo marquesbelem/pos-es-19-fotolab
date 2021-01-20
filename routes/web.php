@@ -43,4 +43,6 @@ Route::namespace('App\Http\Controllers')
     Route::get('/signin', 'LoginController@signin');
     Route::get('/signout', 'LoginController@signout');
     Route::post('/signin/authenticate', 'LoginController@autenticarUsuario');
+
+    Route::get('/register', 'RegisterController@register');
 });
