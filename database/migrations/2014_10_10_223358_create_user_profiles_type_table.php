@@ -16,7 +16,7 @@ class CreateUserProfilesTypeTable extends Migration
     {
         Schema::create(TipoPerfil::TABLE_NAME, function (Blueprint $table) {
             $table->tinyIncrements('id');
-            $table->string('tipo_perfil');
+            $table->string('nome');
         });
     }
 

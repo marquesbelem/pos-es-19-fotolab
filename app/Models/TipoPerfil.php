@@ -13,4 +13,21 @@ class TipoPerfil extends Model
 
     protected $table = self::TABLE_NAME;
     public $timestamps = false;
+
+    public function fromNome(string $nome): self
+    {
+        $tipoPerfil = self::whereNome(ucfirst($nome))->first();
+
+        throw_if(
+            !$tipoPerfil,
+            trans(
+                'CadastroUsuario.tipo.nao_encontrado',
+                [
+                    'tipo' => $nome
+                ]
+            )
+        );
+
+        return $tipoPerfil;
+    }
 }

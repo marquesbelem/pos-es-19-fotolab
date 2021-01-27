@@ -23,12 +23,12 @@ Route::namespace('App\Http\Controllers')
         Route::get('/perfil', 'UsuarioController@obterDadosPerfil');
 
         Route::group(['prefix' => 'cadastro'], function () {
-            Route::get('/', 'UsuarioController@formulario');
-            Route::post('/criar', 'UsuarioController@criar');
-            Route::get('/sucesso', function () {
-                return view('usuario.cadastro.sucesso');
-            });
-            Route::get('/erro', 'RegisterController@Register');
+            Route::get('/', 'UsuarioController@formulario')->name('usuario.cadastro');
+            Route::post('/criar', 'UsuarioController@criar')->name('usuario.cadastro.criar');
+            Route::get('/sucesso', function ($nome) {
+                return view('usuario.cadastro.sucesso', ['nome' => $nome]);
+            })->name('usuario.cadastro.sucesso');
+            Route::get('/erro', 'RegisterController@Register')->name('usuario.cadastro.erro');
         });
 
         Route::group(['prefix' => 'fotografo', 'middleware' => 'checkIsFotografo'], function () {

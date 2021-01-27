@@ -2,20 +2,29 @@
 
 namespace Tests\Feature;
 
+use App\Models\TipoPerfil;
 use App\Models\Usuario;
+use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class UsuarioTest extends TestCase
 {
+    use WithFaker;
     public function testCriarUsuario()
     {
-        $usuario = Usuario::factory()->make();
+        $params = [
+            'email' => $this->faker->email(),
+            'senha' => $this->faker->password(8,15),
+            'nome' => $this->faker->firstName(),
+            'sobrenome' => $this->faker->lastName(),
+            'data_nascimento' => $this->faker->date('d/m/Y'),
+            'tipo' => strtolower(TipoPerfil::inRandomOrder()->first()->nome)
+        ];
 
-        dump("Criando o usuário:", $usuario->toArray());
-        $response = $this->post("/usuario/cadastro/criar", $usuario->toArray());
+        $response = $this->post("/usuario/cadastro/criar", $params);
 
-        $response->dumpSession();
-        $this->assertNotNull(Usuario::whereEmail($usuario->email)->first());
-        $response->assertRedirect('usuario/cadastro/sucesso');
+        $this->assertNotNull(Usuario::whereEmail($params['email'])->first());
+        $response->assertViewIs('usuario.cadastro.sucesso');
+        $response->assertViewHas('nome_usuario', $params['nome']);
     }
 }

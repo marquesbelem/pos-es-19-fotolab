@@ -23,7 +23,7 @@ class CreateTestUser extends Seeder
     public function run()
     {
         DB::transaction(function () {
-            $tipoPerfil = TipoPerfil::whereTipoPerfil('Fotografo')->first();
+            $tipoPerfil = TipoPerfil::whereNome('Fotografo')->first();
             $dataNascimento = Carbon::createFromFormat('d/m/Y', '21/03/1995')
                 ->toDateString();
 

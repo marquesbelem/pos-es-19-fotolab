@@ -3,6 +3,7 @@
 return [
     'email.required' => 'Nenhum e-mail informado.',
     'email.email' => 'E-mail não está no formato correto.',
+    'email.duplicado' => 'E-mail informado já está cadastrado no sistema!',
     'senha.required' => 'Nenhuma senha informada.',
     'senha.string' => 'A senha deve ser um texto.',
     'senha.between' => 'A senha deve conter entre 8 e 15 caracteres.',
@@ -16,4 +17,5 @@ return [
     'data_nascimento.required' => 'Data de nascimento náo informada.',
     'data_nascimento.date' => 'Data de nascimento informada não é uma data.',
     'data_nascimento.date_format' => 'Formato incorreto da data de nascimento, o correto é: DD/MM/YYYY',
+    'tipo_perfil.nao_encontrado' => 'Perfil do tipo :tipo é inválido!'
 ];

@@ -14,11 +14,11 @@ class CreateProfileTypes extends Seeder
         $profileTypes = [
             [
                 'id' => 1,
-                'tipo_perfil' => 'Cliente'
+                'nome' => 'Cliente'
             ],
             [
                 'id' => 2,
-                'tipo_perfil' => 'Fotografo'
+                'nome' => 'Fotografo'
             ]
         ];
 

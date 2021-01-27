@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CadastrarUsuarioRequest;
+use App\Models\TipoPerfil;
+use App\Models\Usuario;
 use App\Support\Factory\UserFactory;
 use Throwable;
 
@@ -17,21 +19,24 @@ class UsuarioController extends Controller
     {
         try {
             $dadosUsuario = $request->validated();
-            $usuario = UserFactory::make([
-                'tipo' => $dadosUsuario['tipo'],
-                'atributos' => $dadosUsuario
-            ]);
+            
+            $tipoPerfil = TipoPerfil::make()->fromNome($dadosUsuario['tipo']);
 
-            $usuario->fill($dadosUsuario);
+            $usuarioMesmoEmail = Usuario::whereEmail($dadosUsuario['email'])->first();
+            throw_if($usuarioMesmoEmail, trans('CadastroUsuario.email.duplicado'));
+
+            $usuario = Usuario::make($dadosUsuario);
+            $usuario->id_tipo_perfil = $tipoPerfil->id;
+            $usuario->data_nascimento = date('Y-m-d', strtotime($dadosUsuario['data_nascimento']));
 
             $usuario->save();
         } catch (Throwable $e) {
-            return redirect('usuario.cadastro.erro', 400)->withErrors([
+            return redirect(route('usuario.cadastro'), 400)->withErrors([
                 'generalError' => $e->getMessage()
             ]);
         }
 
-        return redirect('usuario.cadastro.sucesso')
+        return view('usuario.cadastro.sucesso')
             ->with('nome_usuario', $usuario->nome);
     }
 
