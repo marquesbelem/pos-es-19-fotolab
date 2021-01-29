@@ -37,6 +37,6 @@ class AuthenticationRequest extends FormRequest
      */
     public function messages()
     {
-        return trans('Login');
+        return trans('Login.errors');
     }
 }
